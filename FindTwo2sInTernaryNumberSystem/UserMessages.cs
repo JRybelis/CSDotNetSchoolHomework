@@ -14,7 +14,7 @@ namespace FindTwo2sInTernaryNumberSystem
         {
             int a = RequestUserInput.GetIntegerInput("Please enter your first integer.");
             int b = RequestUserInput.GetIntegerInput("Please enter your second integer.");
-            int[] integerRangeMembers = CalculateData.FindIntegerRangeMembers(a, b);
+            var integerRangeMembers = CalculateData.FindIntegerRangeMembers(a, b);
             
             Console.WriteLine("The range of integers, based on numbers you supplied:");
             
@@ -26,7 +26,19 @@ namespace FindTwo2sInTernaryNumberSystem
         
         public static void PrintResultsMessage(string message)
         {
+            int a = RequestUserInput.GetIntegerInput("Please enter your first integer.");
+            int b = RequestUserInput.GetIntegerInput("Please enter your second integer.");
+            var integerRangeMembers = CalculateData.FindIntegerRangeMembers(a, b);
+            var ternaryNumbersToPrint = CalculateData.CheckTernaryIntegersForTwo2S(integerRangeMembers);
+            
             Console.WriteLine(message);
+            Console.WriteLine();
+            
+            foreach (var ternaryNumber in ternaryNumbersToPrint)
+            {
+                Console.Write($"\t{ternaryNumber}");
+            }
+            
             Console.WriteLine();
             Console.Write("Thank you for using this app. Goodbye.");
         }
