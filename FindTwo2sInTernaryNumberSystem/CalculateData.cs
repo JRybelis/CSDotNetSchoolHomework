@@ -24,54 +24,55 @@ namespace FindTwo2sInTernaryNumberSystem
 
         public static List<int> ConvertIntegerRangeMemberToTernary(int integerRangeMember)
         {
-            int dividend = integerRangeMember;
-            int quotent;
-            int lastDigit = dividend % 3;
-            List<int> InverseTernaryOutput = new List<int>();
-            List<int> TernaryIntegerDigits = new List<int>();
-            do
+            var dividend = integerRangeMember;
+            const int divisor = 3;
+            var quotient = dividend / divisor;
+            var remainder = dividend % divisor;
+            List<int> ternaryIntegerDigits = new();
+            
+            ternaryIntegerDigits.Add(remainder);
+            while (quotient != 0)
             {
-                InverseTernaryOutput.Add(lastDigit);
-                
-                quotent = dividend / 3;
-                lastDigit = quotent % 3;
-            } while (quotent != 0);
+                remainder = quotient % divisor;
+                ternaryIntegerDigits.Add(remainder);
+                quotient /= divisor;
+            }
+            
 
-            InverseTernaryOutput.Reverse();
-            TernaryIntegerDigits = InverseTernaryOutput.ToList();
+            ternaryIntegerDigits.Reverse();
 
-            return TernaryIntegerDigits;
+            return ternaryIntegerDigits;
         }
 
-        public static ArrayList CheckTernaryIntegersForTwo2s(int[] integerRangeMembers)
+        public static ArrayList CheckTernaryIntegersForTwo2S(int[] integerRangeMembers) // is the param really needed?
         {
-            List<int> TernaryIntegerDigitsToCheck = new List<int>();
-            ArrayList TernaryNumbersWithTwo2sInThem = new ArrayList();
+            List<int> ternaryIntegerDigitsToCheck = new List<int>();
+            ArrayList ternaryNumbersWithTwo2SInThem = new ArrayList();
             string parsedTargetTernaryNumber = String.Empty;
             
-            foreach (var integer in integerRangeMembers)
+            foreach (var integer in integerRangeMembers) // todo split into two methods? a) find the 2 twos b) collect these into an arrayList 
             {
-                TernaryIntegerDigitsToCheck = ConvertIntegerRangeMemberToTernary(integer);
+                ternaryIntegerDigitsToCheck = ConvertIntegerRangeMemberToTernary(integer);
                 
-                for (int i = 0; i < TernaryIntegerDigitsToCheck.Count; i++)
+                for (int i = 0; i < ternaryIntegerDigitsToCheck.Count; i++)
                 {
                     int digitsTwoCounter = 0;
 
                     while (digitsTwoCounter < 2)
                     {
-                        if (TernaryIntegerDigitsToCheck[i] == 2)
+                        if (ternaryIntegerDigitsToCheck[i] == 2)//todo fix infinite loop
                         {
                             digitsTwoCounter++;
                         }    
                     }
                     if (digitsTwoCounter >= 2)
                     {
-                        parsedTargetTernaryNumber = string.Join("", TernaryIntegerDigitsToCheck.ToArray());
+                        parsedTargetTernaryNumber = string.Join("", ternaryIntegerDigitsToCheck.ToArray());
                     }
                 }
-                TernaryNumbersWithTwo2sInThem.Add(parsedTargetTernaryNumber);
+                ternaryNumbersWithTwo2SInThem.Add(parsedTargetTernaryNumber);
             }
-            return TernaryNumbersWithTwo2sInThem;
+            return ternaryNumbersWithTwo2SInThem;
         }
     }
 }
