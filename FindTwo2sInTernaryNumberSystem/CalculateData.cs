@@ -7,7 +7,7 @@ namespace FindTwo2sInTernaryNumberSystem
 {
     public class CalculateData
     {
-        public static int[] FindIntegerRangeMembers(int firstInteger, int lastInteger)
+        public int[] FindIntegerRangeMembers(int firstInteger, int lastInteger)
         {
             int integerRange = (lastInteger - firstInteger)+1;
             int[] integerRangeMembers = new int[integerRange];
@@ -22,7 +22,7 @@ namespace FindTwo2sInTernaryNumberSystem
             return integerRangeMembers;
         }
 
-        public static List<int> ConvertIntegerRangeMemberToTernary(int integerRangeMember)
+        public List<int> ConvertIntegerRangeMemberToTernary(int integerRangeMember)
         {
             var dividend = integerRangeMember;
             const int divisor = 3;
@@ -44,35 +44,40 @@ namespace FindTwo2sInTernaryNumberSystem
             return ternaryIntegerDigits;
         }
 
-        public static ArrayList CheckTernaryIntegersForTwo2S(int[] integerRangeMembers) // is the param really needed?
+        public string CheckTernaryIntegerForTwo2S(List<int> ternaryIntegerDigitsToCheck)
         {
-            List<int> ternaryIntegerDigitsToCheck = new List<int>();
-            ArrayList ternaryNumbersWithTwo2SInThem = new ArrayList();
-            string parsedTargetTernaryNumber = String.Empty;
-            
-            foreach (var integer in integerRangeMembers) // todo split into two methods? a) find the 2 twos b) collect these into an arrayList 
+            string parsedTargetTernaryNumber = string.Empty;
+            var digitsTwoCounter = 0;
+            foreach (var ternaryIntegerDigit in ternaryIntegerDigitsToCheck) 
             {
-                ternaryIntegerDigitsToCheck = ConvertIntegerRangeMemberToTernary(integer);
-                
-                for (int i = 0; i < ternaryIntegerDigitsToCheck.Count; i++)
+                if (ternaryIntegerDigit == 2)
                 {
-                    int digitsTwoCounter = 0;
-
-                    while (digitsTwoCounter < 2)
-                    {
-                        if (ternaryIntegerDigitsToCheck[i] == 2)//todo fix infinite loop
-                        {
-                            digitsTwoCounter++;
-                        }    
-                    }
-                    if (digitsTwoCounter >= 2)
-                    {
-                        parsedTargetTernaryNumber = string.Join("", ternaryIntegerDigitsToCheck.ToArray());
-                    }
+                    digitsTwoCounter++;
                 }
-                ternaryNumbersWithTwo2SInThem.Add(parsedTargetTernaryNumber);
+                if (digitsTwoCounter >= 2)
+                {
+                    parsedTargetTernaryNumber = string.Join("", ternaryIntegerDigitsToCheck.ToArray());
+                }
+            }
+            return parsedTargetTernaryNumber;
+        }
+
+        public ArrayList CollectTernariesWithTwo2S(IEnumerable<int> integerRangeMembers)
+        {
+            ArrayList ternaryNumbersWithTwo2SInThem = new ArrayList();
+
+            foreach (var integer in integerRangeMembers)
+            {
+                List<int> ternaryIntegerDigitsToCheck = ConvertIntegerRangeMemberToTernary(integer);
+                string parsedTargetTernaryNumber = CheckTernaryIntegerForTwo2S(ternaryIntegerDigitsToCheck);
+
+                if (parsedTargetTernaryNumber != "")
+                {
+                    ternaryNumbersWithTwo2SInThem.Add(parsedTargetTernaryNumber);    
+                }
             }
             return ternaryNumbersWithTwo2SInThem;
         }
+            
     }
 }

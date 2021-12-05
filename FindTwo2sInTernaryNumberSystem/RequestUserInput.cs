@@ -1,15 +1,26 @@
 using System;
+using FindTwo2sInTernaryNumberSystem.Interfaces;
 
 namespace FindTwo2sInTernaryNumberSystem
 {
     public class RequestUserInput
     {
-        public static int GetIntegerInput(string message)
+        private readonly IWriter _writer;
+        private readonly IReader _reader;
+
+        public RequestUserInput(IWriter writer, IReader reader)
         {
-            Console.WriteLine(message);
-            string? userStringInput = Console.ReadLine();
-            
-            int output = Int32.Parse(userStringInput);
+            _writer = writer;
+            _reader = reader;
+        }
+
+        public int GetIntegerInput(string message)
+        {
+            _writer.Write(message);
+
+            string? userStringInput = _reader.Read();
+
+            int output = Int32.Parse(userStringInput);//todo throw exception when null. Catch it upstream. 
             
             return output;
         }
