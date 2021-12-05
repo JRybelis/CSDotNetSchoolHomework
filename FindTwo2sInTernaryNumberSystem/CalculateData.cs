@@ -7,7 +7,7 @@ namespace FindTwo2sInTernaryNumberSystem
 {
     public class CalculateData
     {
-        public static int[] FindIntegerRangeMembers(int firstInteger, int lastInteger)
+        public int[] FindIntegerRangeMembers(int firstInteger, int lastInteger)
         {
             int integerRange = (lastInteger - firstInteger)+1;
             int[] integerRangeMembers = new int[integerRange];
@@ -22,7 +22,7 @@ namespace FindTwo2sInTernaryNumberSystem
             return integerRangeMembers;
         }
 
-        public static List<int> ConvertIntegerRangeMemberToTernary(int integerRangeMember)
+        public List<int> ConvertIntegerRangeMemberToTernary(int integerRangeMember)
         {
             var dividend = integerRangeMember;
             const int divisor = 3;
@@ -44,10 +44,8 @@ namespace FindTwo2sInTernaryNumberSystem
             return ternaryIntegerDigits;
         }
 
-        public static string CheckTernaryIntegerForTwo2S(List<int> ternaryIntegerDigitsToCheck)
+        public string CheckTernaryIntegerForTwo2S(List<int> ternaryIntegerDigitsToCheck)
         {
-            //List<int> ternaryIntegerDigitsToCheck = new List<int>();
-            
             string parsedTargetTernaryNumber = string.Empty;
             var digitsTwoCounter = 0;
             foreach (var ternaryIntegerDigit in ternaryIntegerDigitsToCheck) 
@@ -64,7 +62,7 @@ namespace FindTwo2sInTernaryNumberSystem
             return parsedTargetTernaryNumber;
         }
 
-        public static ArrayList CollectTernariesWithTwo2S(IEnumerable<int> integerRangeMembers)
+        public ArrayList CollectTernariesWithTwo2S(IEnumerable<int> integerRangeMembers)
         {
             ArrayList ternaryNumbersWithTwo2SInThem = new ArrayList();
 
