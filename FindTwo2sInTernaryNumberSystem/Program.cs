@@ -12,7 +12,8 @@ namespace FindTwo2sInTernaryNumberSystem
             IReader reader = new ConsoleLogger();
             
             RequestUserInput requestUserInput = new(writer, reader);
-            UserMessages userMessages = new(writer, requestUserInput);
+            CalculateData calculateData = new();
+            UserMessages userMessages = new(writer, requestUserInput, calculateData);
             
             userMessages.ApplicationLaunchMessage();
 

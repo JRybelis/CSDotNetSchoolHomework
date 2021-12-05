@@ -7,10 +7,12 @@ namespace FindTwo2sInTernaryNumberSystem
     {
         private readonly IWriter _writer;
         private readonly RequestUserInput _requestUserInput;
-        public UserMessages(IWriter writer, RequestUserInput requestUserInput)
+        private readonly CalculateData _calculateData;
+        public UserMessages(IWriter writer, RequestUserInput requestUserInput, CalculateData calculateData)
         {
             _writer = writer;
             _requestUserInput = requestUserInput;
+            _calculateData = calculateData;
         }
 
         public void ApplicationLaunchMessage()
@@ -38,9 +40,8 @@ namespace FindTwo2sInTernaryNumberSystem
             int a = _requestUserInput.GetIntegerInput("Please enter your first integer.");
             int b = _requestUserInput.GetIntegerInput("Please enter your second integer.");
             
-            //todo remove static from calculate data class:
-            var integerRangeMembers = CalculateData.FindIntegerRangeMembers(a, b); 
-            var ternaryNumbersToPrint = CalculateData.CollectTernariesWithTwo2S(integerRangeMembers);
+            var integerRangeMembers = _calculateData.FindIntegerRangeMembers(a, b); 
+            var ternaryNumbersToPrint = _calculateData.CollectTernariesWithTwo2S(integerRangeMembers);
             
             _writer.Write(message);
             _writer.Write("");
