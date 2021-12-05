@@ -6,12 +6,11 @@ namespace FindTwo2sInTernaryNumberSystem
     public class UserMessages
     {
         private readonly IWriter _writer;
-        private readonly IReader _reader;
-
-        public UserMessages(IWriter writer, IReader reader)
+        private readonly RequestUserInput _requestUserInput;
+        public UserMessages(IWriter writer, RequestUserInput requestUserInput)
         {
             _writer = writer;
-            _reader = reader;
+            _requestUserInput = requestUserInput;
         }
 
         public void ApplicationLaunchMessage()
@@ -34,23 +33,25 @@ namespace FindTwo2sInTernaryNumberSystem
             }
         }
         */
-        public static void PrintResultsMessage(string message)
+        public void PrintResultsMessage(string message)
         {
-            int a = RequestUserInput.GetIntegerInput("Please enter your first integer.");
-            int b = RequestUserInput.GetIntegerInput("Please enter your second integer.");
-            var integerRangeMembers = CalculateData.FindIntegerRangeMembers(a, b);
+            int a = _requestUserInput.GetIntegerInput("Please enter your first integer.");
+            int b = _requestUserInput.GetIntegerInput("Please enter your second integer.");
+            
+            //todo remove static from calculate data class:
+            var integerRangeMembers = CalculateData.FindIntegerRangeMembers(a, b); 
             var ternaryNumbersToPrint = CalculateData.CollectTernariesWithTwo2S(integerRangeMembers);
             
-            Console.WriteLine(message);
-            Console.WriteLine();
-            
+            _writer.Write(message);
+            _writer.Write("");
+
             foreach (var ternaryNumber in ternaryNumbersToPrint)
             {
-                Console.Write($"\t{ternaryNumber}");
+                _writer.Write($"{ternaryNumber}");
             }
             
-            Console.WriteLine();
-            Console.Write("Thank you for using this app. Goodbye.");
+            _writer.Write("");
+            _writer.Write("Thank you for using this app. Goodbye.");
         }
 
         
