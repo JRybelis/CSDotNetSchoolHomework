@@ -10,15 +10,17 @@ namespace FindTwo2sInTernaryNumberSystem
         {
             IWriter writer = new ConsoleLogger();
             IReader reader = new ConsoleLogger();
-            UserMessages userMessages = new UserMessages(writer, reader);
+            
+            RequestUserInput requestUserInput = new(writer, reader);
+            UserMessages userMessages = new(writer, requestUserInput);
             
             userMessages.ApplicationLaunchMessage();
 
             //UserMessages.PrintRangeOfIntegers();
             
-            UserMessages.PrintResultsMessage("The range of integers, based on the numbers you supplied has the following numbers in ternary representation with two 2s in them:");
+            userMessages.PrintResultsMessage("The range of integers, based on the numbers you supplied has the following numbers in ternary representation with two 2s in them:");
 
-            Console.ReadLine();
+            reader.Read();
             
         }
     }
