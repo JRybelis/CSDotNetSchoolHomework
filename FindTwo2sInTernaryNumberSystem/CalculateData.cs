@@ -72,8 +72,11 @@ namespace FindTwo2sInTernaryNumberSystem
             {
                 List<int> ternaryIntegerDigitsToCheck = ConvertIntegerRangeMemberToTernary(integer);
                 string parsedTargetTernaryNumber = CheckTernaryIntegerForTwo2S(ternaryIntegerDigitsToCheck);
-                
-                ternaryNumbersWithTwo2SInThem.Add(parsedTargetTernaryNumber);
+
+                if (parsedTargetTernaryNumber != "")
+                {
+                    ternaryNumbersWithTwo2SInThem.Add(parsedTargetTernaryNumber);    
+                }
             }
             return ternaryNumbersWithTwo2SInThem;
         }
