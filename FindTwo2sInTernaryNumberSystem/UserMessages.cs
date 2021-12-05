@@ -1,16 +1,26 @@
 using System;
+using FindTwo2sInTernaryNumberSystem.Interfaces;
 
 namespace FindTwo2sInTernaryNumberSystem
 {
     public class UserMessages
     {
-        public static void ApplicationLaunchMessage()
+        private readonly IWriter _writer;
+        private readonly IReader _reader;
+
+        public UserMessages(IWriter writer, IReader reader)
         {
-            Console.Clear();
-            Console.WriteLine("Hello. This tiny app will take two integer numbers you submit and check all the integers in their range for ternary numbers containing two 2s. Enjoy!");
+            _writer = writer;
+            _reader = reader;
         }
 
-        public static void PrintRangeOfIntegers()
+        public void ApplicationLaunchMessage()
+        {
+            _writer.Clear();
+            _writer.Write("Hello. This tiny app will take two integer numbers you submit and check all the integers in their range for ternary numbers containing two 2s. Enjoy!");
+        }
+
+        /*public static void PrintRangeOfIntegers()
         {
             int a = RequestUserInput.GetIntegerInput("Please enter your first integer.");
             int b = RequestUserInput.GetIntegerInput("Please enter your second integer.");
@@ -23,13 +33,13 @@ namespace FindTwo2sInTernaryNumberSystem
                 Console.Write($"\t{member}");
             }
         }
-        
+        */
         public static void PrintResultsMessage(string message)
         {
             int a = RequestUserInput.GetIntegerInput("Please enter your first integer.");
             int b = RequestUserInput.GetIntegerInput("Please enter your second integer.");
             var integerRangeMembers = CalculateData.FindIntegerRangeMembers(a, b);
-            var ternaryNumbersToPrint = CalculateData.CheckTernaryIntegersForTwo2S(integerRangeMembers);
+            var ternaryNumbersToPrint = CalculateData.CollectTernariesWithTwo2S(integerRangeMembers);
             
             Console.WriteLine(message);
             Console.WriteLine();
