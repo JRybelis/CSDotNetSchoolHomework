@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using ISBN10ControlDigitGenerator.Interfaces;
 
 namespace ISBN10ControlDigitGenerator
@@ -15,12 +17,13 @@ namespace ISBN10ControlDigitGenerator
             _reader = reader;
         }
 
-        public int GetIntegerInput(string message)
+        public List<string> GetIntegerInput(string message)
         {
             _writer.Write(message);
             
             var userStringInput = _reader.Read();
-            var output = int.Parse(userStringInput);
+            var output = userStringInput.Split("").ToList();
+                
 
             return output;
 
