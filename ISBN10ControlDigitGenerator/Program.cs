@@ -25,6 +25,8 @@ namespace ISBN10ControlDigitGenerator
             
             userMessages.PrintTheFullISBN10Out(userSupplied9Digits, checkDigit, "The ISBN-10 code is: ");
             
+            writer.WriteLine("");
+            writer.WriteLine("Thank you for using this app. Goodbye.");
             reader.Read();
         }
     }

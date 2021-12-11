@@ -18,7 +18,7 @@ namespace ISBN10ControlDigitGenerator
         public void ApplicationLaunchMessage(string message)
         {
             _writer.Clear();
-            _writer.Write(message);
+            _writer.WriteLine(message);
         }
 
         public List<string> RequestFirst9ISBNDigits(string message)
@@ -37,10 +37,8 @@ namespace ISBN10ControlDigitGenerator
             
             _writer.Write(message);
             
-            
             foreach (var digit in FullISBN10Code)
             {
-                _writer.Write("");
                 _writer.Write(digit);
             }
         }

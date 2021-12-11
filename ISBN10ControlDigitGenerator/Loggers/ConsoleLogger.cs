@@ -10,9 +10,14 @@ namespace ISBN10ControlDigitGenerator.Loggers
             Console.Clear();
         }
 
-        public void Write(string input)
+        public void WriteLine(string input)
         {
             Console.WriteLine(input);
+        }
+        
+        public void Write(string input)
+        {
+            Console.Write(input);
         }
 
         public string? Read()

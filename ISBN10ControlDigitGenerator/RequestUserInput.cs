@@ -19,7 +19,7 @@ namespace ISBN10ControlDigitGenerator
 
         public List<string> GetIntegerInput(string message)
         {
-            _writer.Write(message);
+            _writer.WriteLine(message);
             
             var userStringInput = _reader.Read().Split(",");
             var output = userStringInput.ToList();
