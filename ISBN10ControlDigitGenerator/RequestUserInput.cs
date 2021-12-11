@@ -21,9 +21,10 @@ namespace ISBN10ControlDigitGenerator
         {
             _writer.Write(message);
             
-            var userStringInput = _reader.Read();
-            var output = userStringInput.Split("").ToList();
-                
+            var userStringInput = _reader.Read().Split(",");
+            var output = userStringInput.ToList();
+            //foreach (var digit in output.ToList()) digit;
+
 
             return output;
 
