@@ -13,6 +13,7 @@ namespace SumBetweenLowestAndHighestValueArrayElements
 
             RequestUserInput requestUserInput = new(writer, reader);
             UserMessages userMessages = new(writer, requestUserInput);
+            CalculateData calculateData = new();
             
             userMessages.ApplicationLaunchMessage("Hello. This tiny app will produce an array of " +
                                                   "integers and, also, add the range of its elements " +
@@ -22,6 +23,14 @@ namespace SumBetweenLowestAndHighestValueArrayElements
 
             var userChosenLengthOfArray = userMessages.RequestArrayLength("Please enter an " +
                 "integer number to set the length of the array. Make sure it is higher than 1.");
+
+            var userPopulatedArrayOfIntegers = userMessages.GetUserToPopulateArray(userChosenLengthOfArray);
+            
+            var leftmostLowestArrayElement
+                = calculateData.FindTheLeftmostLowestArrayElementPosition(userPopulatedArrayOfIntegers);
+            
+            var rightmostHighestArrayElement = calculateData.FindTheRightmostHighestArrayElementPosition(userPopulatedArrayOfIntegers);
+            
             
             writer.WriteLine("");
             writer.WriteLine("Thank you for using this app. Goodbye.");
