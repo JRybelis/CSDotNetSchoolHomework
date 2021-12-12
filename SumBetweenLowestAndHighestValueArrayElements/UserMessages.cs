@@ -32,4 +32,18 @@ public class UserMessages
 
         return arrayLength;
     }
+
+    public int[] GetUserToPopulateArray(string message, int arrayLength)
+    {
+
+        var arrayOfIntegers = new int[arrayLength];
+
+        for (int i = 0; i < arrayLength; i++)
+        {
+            _writer.WriteLine(message);
+            arrayOfIntegers[i] += _requestUserInput.GetIntegerInput();
+        }
+
+        return arrayOfIntegers;
+    }
 }
