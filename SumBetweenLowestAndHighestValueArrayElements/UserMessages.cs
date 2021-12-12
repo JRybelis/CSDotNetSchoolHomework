@@ -45,4 +45,14 @@ public class UserMessages
 
         return arrayOfIntegers;
     }
+    
+    public void PrintTheResultingArray(int[] userProvidedArray, string message)
+    {
+        _writer.WriteLine(message);
+        
+        for (int i = 0; i < userProvidedArray.Length; i++)
+        {
+            _writer.Write($"{userProvidedArray[i]}, ");            
+        }
+    }
 }

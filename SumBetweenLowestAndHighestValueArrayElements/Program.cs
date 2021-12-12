@@ -31,6 +31,8 @@ namespace SumBetweenLowestAndHighestValueArrayElements
             
             var rightmostHighestArrayElement = calculateData.FindTheRightmostHighestArrayElementPosition(userPopulatedArrayOfIntegers);
             
+            userMessages.PrintTheResultingArray(userPopulatedArrayOfIntegers, "Please find " +
+                "the array of integers you created below:");
             
             writer.WriteLine("");
             writer.WriteLine("Thank you for using this app. Goodbye.");
