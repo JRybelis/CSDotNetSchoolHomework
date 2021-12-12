@@ -14,12 +14,10 @@ public class RequestUserInput
         _reader = reader;
     }
 
-    public int GetArrayLength(string message)
+    public int GetIntegerInput()
     {
-        _writer.WriteLine(message);
+        var integerInput = int.Parse(_reader.Read());
 
-        var arrayLength = int.Parse(_reader.Read());
-
-        return arrayLength;
+        return integerInput;
     }
 }
