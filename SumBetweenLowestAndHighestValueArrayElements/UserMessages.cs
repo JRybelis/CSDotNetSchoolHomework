@@ -33,14 +33,13 @@ public class UserMessages
         return arrayLength;
     }
 
-    public int[] GetUserToPopulateArray(string message, int arrayLength)
+    public int[] GetUserToPopulateArray(int arrayLength)
     {
-
         var arrayOfIntegers = new int[arrayLength];
 
         for (int i = 0; i < arrayLength; i++)
         {
-            _writer.WriteLine(message);
+            _writer.WriteLine($"Please type an integer in for the {i+1} element of the array: ");
             arrayOfIntegers[i] += _requestUserInput.GetIntegerInput();
         }
 
