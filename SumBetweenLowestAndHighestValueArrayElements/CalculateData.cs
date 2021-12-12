@@ -62,6 +62,18 @@ public class CalculateData
         }
         return rightTrimmedArray;
     }
+
+    public int AddRemainingArrayElementsTogether(int[] trimmedArray)
+    {
+        int sumOfTrimmedArrayElements = 0;
+        
+        foreach (var element in trimmedArray)
+        {
+            sumOfTrimmedArrayElements += element;
+        }
+
+        return sumOfTrimmedArrayElements;
+    }
     
     
 }
