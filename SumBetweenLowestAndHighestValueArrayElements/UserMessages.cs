@@ -55,4 +55,23 @@ public class UserMessages
             _writer.Write($"{userProvidedArray[i]}, ");            
         }
     }
+
+    public void PrintTrimmedArrayElementsBeingAddedTogether(int[] trimmedArray, int trimmedArrayElementSum, string message)
+    {
+        _writer.WriteLine(message);
+
+        for (int i = 0; i < trimmedArray.Length; i++)
+        {
+            if (i == trimmedArray.Length-1)
+            {
+                _writer.Write($"{trimmedArray[i]} = {trimmedArrayElementSum}");    
+            }
+            else
+            {
+                _writer.Write($"{trimmedArray[i]} + ");
+            }
+            
+        }
+        
+    }
 }

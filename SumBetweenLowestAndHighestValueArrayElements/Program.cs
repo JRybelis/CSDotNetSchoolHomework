@@ -41,8 +41,13 @@ namespace SumBetweenLowestAndHighestValueArrayElements
             var rightTrimmedArray
                 = calculateData.RemoveAnyElementsRightOfTheHighestFromTheArray(leftTrimmedArray
                     , rightmostHighestArrayElement);
+
+            var trimmedArrayElementSum
+                = calculateData.AddRemainingArrayElementsTogether(rightTrimmedArray);
             
-            
+            userMessages.PrintTrimmedArrayElementsBeingAddedTogether(rightTrimmedArray, 
+                trimmedArrayElementSum, "Please see the array elements from the lowest to the " +
+                                        "highest value element being added together, below: ");
             
             writer.WriteLine("");
             writer.WriteLine("Thank you for using this app. Goodbye.");
