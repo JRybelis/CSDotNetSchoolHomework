@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindTwo2sInTernaryNumberSystem", "FindTwo2sInTernaryNumberSystem\FindTwo2sInTernaryNumberSystem.csproj", "{617A25C4-4F6B-455F-9B8A-A05FA1EFEBA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumBetweenLowestAndHighestValueArrayElements", "SumBetweenLowestAndHighestValueArrayElements\SumBetweenLowestAndHighestValueArrayElements.csproj", "{8F368DFF-5CDF-42BD-934D-E483C95AD05E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{617A25C4-4F6B-455F-9B8A-A05FA1EFEBA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{617A25C4-4F6B-455F-9B8A-A05FA1EFEBA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{617A25C4-4F6B-455F-9B8A-A05FA1EFEBA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F368DFF-5CDF-42BD-934D-E483C95AD05E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F368DFF-5CDF-42BD-934D-E483C95AD05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F368DFF-5CDF-42BD-934D-E483C95AD05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F368DFF-5CDF-42BD-934D-E483C95AD05E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
