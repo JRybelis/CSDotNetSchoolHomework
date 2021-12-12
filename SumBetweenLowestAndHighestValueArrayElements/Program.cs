@@ -33,6 +33,16 @@ namespace SumBetweenLowestAndHighestValueArrayElements
             
             userMessages.PrintTheResultingArray(userPopulatedArrayOfIntegers, "Please find " +
                 "the array of integers you created below:");
+
+            var leftTrimmedArray
+                = calculateData.RemoveAnyElementsLeftOfTheLowestFromTheArray(
+                    userPopulatedArrayOfIntegers, leftmostLowestArrayElement);
+            
+            var rightTrimmedArray
+                = calculateData.RemoveAnyElementsRightOfTheHighestFromTheArray(leftTrimmedArray
+                    , rightmostHighestArrayElement);
+            
+            
             
             writer.WriteLine("");
             writer.WriteLine("Thank you for using this app. Goodbye.");

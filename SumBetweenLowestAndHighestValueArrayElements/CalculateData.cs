@@ -28,8 +28,39 @@ public class CalculateData
                 rightmostHighestArrayElement = userProvidedArray[i];
             }
         }
-        
         return rightmostHighestArrayElement;
+    }
+
+    public int[] RemoveAnyElementsLeftOfTheLowestFromTheArray(int[] userProvidedArray
+        , int leftmostLowestArrayElement)
+    {
+        int[] leftTrimmedArray = userProvidedArray;
+
+        if (leftmostLowestArrayElement > 0)
+        {
+            for (var i = 0; i < leftmostLowestArrayElement; i++)
+            {
+                leftTrimmedArray = leftTrimmedArray.Where((_, index) => index != i)
+                    .ToArray();
+            }
+        }
+        return leftTrimmedArray;
+    }
+    
+    public int[] RemoveAnyElementsRightOfTheHighestFromTheArray(int[] userProvidedArray
+        , int rightmosthighestArrayElement)
+    {
+        int[] rightTrimmedArray = userProvidedArray;
+
+        if (rightmosthighestArrayElement < userProvidedArray.Length)// todo check if out of bounds can happen here?
+        {
+            for (var i = userProvidedArray.Length; i > rightmosthighestArrayElement; i--)
+            {
+                rightTrimmedArray = rightTrimmedArray.Where((_, index) => index != i)
+                    .ToArray();
+            }
+        }
+        return rightTrimmedArray;
     }
     
     
